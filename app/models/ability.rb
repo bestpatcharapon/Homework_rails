@@ -9,7 +9,7 @@ class Ability
     if user.admin?
       can :manage, :all
     elsif user.staff?
-      can :read, :all
+      can [:read, :update, :edit], :all
     else
       can :read, Recipe
       can :read, Category

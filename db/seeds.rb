@@ -82,3 +82,22 @@ puts "\n🌱 Seeding Complete!"
 puts "Categories: #{Category.count}"
 puts "Ingredients: #{Ingredient.count}"
 puts "Recipes: #{Recipe.count}"
+
+# Create Users
+if User.count.zero?
+  admin = User.create!(
+    email: 'admin@example.com',
+    password: 'password',
+    password_confirmation: 'password'
+  )
+  admin.add_role(:admin)
+  puts "✅ Created Admin User: admin@example.com"
+
+  staff = User.create!(
+    email: 'staff@example.com',
+    password: 'password',
+    password_confirmation: 'password'
+  )
+  staff.add_role(:staff)
+  puts "✅ Created Staff User: staff@example.com"
+end
