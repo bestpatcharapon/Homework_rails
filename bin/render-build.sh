@@ -6,5 +6,3 @@ set -o errexit
 rm -f Gemfile.lock
 bundle install
 ./bin/rails assets:precompile
-./bin/rails db:migrate
-./bin/rails db:seed

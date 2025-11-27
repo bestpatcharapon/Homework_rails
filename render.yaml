@@ -8,6 +8,7 @@ services:
     name: store
     env: ruby
     buildCommand: "./bin/render-build.sh"
+    preDeployCommand: "./bin/rails db:prepare && ./bin/rails db:seed"
     startCommand: "./bin/rails server"
     envVars:
       - key: DATABASE_URL
