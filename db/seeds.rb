@@ -1,5 +1,5 @@
 # frozen_string_literal: true
- 
+
 if Category.count.zero?
   categories = [
     { name: 'Desserts', remark: 'Indulge in sweet treats with our dessert collection.' },
@@ -7,12 +7,12 @@ if Category.count.zero?
     { name: 'Vegetarian', remark: 'Wholesome vegetarian recipes full of flavor.' },
     { name: 'Salads', remark: 'Healthy and refreshing salads for a healthy lifestyle.' }
   ]
- 
+
   categories.each do |ccategory|
     Category.create(ccategory)
   end
 end
- 
+
 if Ingredient.count.zero?
   ingredients = [
     { name: 'sugar', remark: 'Use granulated sugar for sweetness.' },
@@ -37,7 +37,7 @@ if Ingredient.count.zero?
     { name: 'fresh cilantro', remark: 'Garnish for a fresh burst of flavor.' },
     { name: 'sour cream', remark: 'Optional, for creaminess.' }
   ]
- 
+
 
   ingredients.each do |ingredient|
     Ingredient.create(ingredient)
@@ -53,7 +53,7 @@ if Recipe.count.zero?
     price: 250,
     category: Category.find_by(name: 'Desserts')
   )
-  chocolate_cake.ingredients << Ingredient.where(name: ['sugar', 'milk', 'eggs', 'cocoa powder', 'baking soda', 'baking powder'])
+  chocolate_cake.ingredients << Ingredient.where(name: [ 'sugar', 'milk', 'eggs', 'cocoa powder', 'baking soda', 'baking powder' ])
 
   # Cauliflower Tacos
   cauliflower_tacos = Recipe.create!(
@@ -63,7 +63,7 @@ if Recipe.count.zero?
     price: 180,
     category: Category.find_by(name: 'Vegetarian')
   )
-  cauliflower_tacos.ingredients << Ingredient.where(name: ['cauliflower', 'olive oil', 'chili powder', 'corn tortillas', 'lime', 'fresh cilantro', 'sour cream'])
+  cauliflower_tacos.ingredients << Ingredient.where(name: [ 'cauliflower', 'olive oil', 'chili powder', 'corn tortillas', 'lime', 'fresh cilantro', 'sour cream' ])
 
   # Spaghetti Bolognese
   spaghetti = Recipe.create!(
@@ -73,7 +73,7 @@ if Recipe.count.zero?
     price: 220,
     category: Category.find_by(name: 'Main Courses')
   )
-  spaghetti.ingredients << Ingredient.where(name: ['ground beef', 'onion', 'garlic', 'tomatoes', 'olive oil', 'oregano', 'spaghetti'])
+  spaghetti.ingredients << Ingredient.where(name: [ 'ground beef', 'onion', 'garlic', 'tomatoes', 'olive oil', 'oregano', 'spaghetti' ])
 
   puts "✅ Created #{Recipe.count} recipes"
 end

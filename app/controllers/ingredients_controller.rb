@@ -11,7 +11,7 @@ class IngredientsController < ApplicationController
   def create
     @ingredient = Ingredient.new(ingredient_params)
     if @ingredient.save
-      redirect_to ingredients_path, notice: 'Ingredient was successfully created.'
+      redirect_to ingredients_path, notice: "Ingredient was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -24,8 +24,8 @@ class IngredientsController < ApplicationController
   def update
     @ingredient = Ingredient.find(params[:id])
     if @ingredient.update(ingredient_params)
-      @ingredient.image.purge if ingredient_params[:remove_image] == '1'
-      redirect_to ingredients_path, notice: 'Ingredient was successfully updated.'
+      @ingredient.image.purge if ingredient_params[:remove_image] == "1"
+      redirect_to ingredients_path, notice: "Ingredient was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class IngredientsController < ApplicationController
   def destroy
     @ingredient = Ingredient.find(params[:id])
     @ingredient.destroy
-    redirect_to ingredients_path, notice: 'Ingredient was successfully destroyed.'
+    redirect_to ingredients_path, notice: "Ingredient was successfully destroyed."
   end
 
   private

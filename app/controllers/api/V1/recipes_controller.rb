@@ -8,7 +8,7 @@ class Api::V1::RecipesController < Api::ApplicationController
 
   def show
     if @recipe
-      render json: @recipe, include: [:ingredients, :category], status: :ok
+      render json: @recipe, include: [ :ingredients, :category ], status: :ok
     else
       render json: { error: "Recipe not found" }, status: :not_found
     end
