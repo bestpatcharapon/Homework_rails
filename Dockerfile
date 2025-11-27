@@ -48,9 +48,7 @@ RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz
 COPY Gemfile Gemfile.lock vendor ./
 
 # Force fresh dependency resolution to fix exit code 34
-RUN rm Gemfile.lock && \
-    gem update --system && \
-    gem install bundler && \
+RUN rm -f Gemfile.lock && \
     bundle install && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
 
