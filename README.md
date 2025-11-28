@@ -24,33 +24,7 @@
 
 ---
 
-# Ruby on Rails - Recipe Management System
-
-## 📋 สรุปโปรเจค
-
-### 1. ระบบแบ่งส่วนการใช้งาน
-
-- **Public (ไม่ต้อง login)**: Landing Page แสดงเมนูอาหารทั้งหมด
-- **Protected (ต้อง login)**: ระบบจัดการ CRUD เมนูอาหารและส่วนประกอบ
-
-### 2. User Roles และ Permissions
-
-| Role     | Email               | Password   | สิทธิ์             |
-| -------- | ------------------- | ---------- | ------------------ |
-| 👑 Admin | `admin@example.com` | `password` | Manage All (CRUD)  |
-| 👨‍💼 Staff | `staff@example.com` | `password` | Read, Edit, Update |
-| 🚫 Guest | ไม่ได้ login        | -          | Read Only          |
-
-### 3. Image Preview ด้วย Stimulus
-
-- Preview รูปภาพทันทีเมื่อเลือกไฟล์
-- รองรับ Drag & Drop
-- แสดงชื่อไฟล์และขนาด
-- **ลบรูปภาพได้เมื่อ upload ผิด**
-
----
-
-## 🖼️ Screenshots
+## � Screenshots
 
 ### Image 1 - Landing Page
 
