@@ -34,7 +34,7 @@
 
 ### Image 2 - Login Page
 
-หน้า Login สำหรับ Admin 
+หน้า Login สำหรับ Admin
 
 ![Image 2](app/assets/images/2.png)
 
@@ -79,3 +79,15 @@
 ไม่สามารถ add delete หรือ edit recipe กับ Add new ingredient ได้
 
 ![Image 3.2](app/assets/images/3.2.png)
+
+### Image 4 - Categories Menu
+
+หน้า Categories สำหรับจัดการหมวดหมู่อาหาร
+
+![Image 4](app/assets/images/4.png)
+
+#### Image 4.1 - Add New Category
+
+หน้าเพิ่ม Category ใหม่
+
+![Image 4.1](app/assets/images/4.1.png)

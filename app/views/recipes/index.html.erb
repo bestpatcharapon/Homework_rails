@@ -15,15 +15,23 @@
 
     <nav class="flex-1 py-6">
       <ul>
-        <li class="space-y-2">
-          <a href="#" class="block py-3 px-6 bg-red-600 border-l-4 border-white font-semibold">
+        <li>
+          <%= link_to recipes_path, class: "block py-3 px-6 bg-red-600 border-l-4 border-white font-semibold" do %>
             <i class="fa-solid fa-burger"></i>
             <span class="mr-2"></span> Recipes
-          </a>
-          <a href="<%= ingredients_path %>" class="block py-3 px-6 bg-red-600 border-l-4 border-white font-semibold ">
-            <i class="fa-solid fa-pizza-slice"></i>
-            <span class="mr-2"></span> Ingredient 
-          </a>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to ingredients_path, class: "block py-3 px-6 hover:bg-red-600 transition text-red-100" do %>
+          <i class="fa-solid fa-pizza-slice"></i>
+            <span class="mr-2"></span> Ingredients
+          <% end %>
+        </li>
+        <li>
+          <%= link_to categories_path, class: "block py-3 px-6 hover:bg-red-600 transition text-red-100" do %>
+          <i class="fa-solid fa-list"></i>
+            <span class="mr-2"></span> Categories
+          <% end %>
         </li>
       </ul>
     </nav>
