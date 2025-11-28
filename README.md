@@ -34,48 +34,48 @@
 
 ### Image 2 - Login Page
 
-หน้า Login สำหรับ Admin และ Staff
+หน้า Login สำหรับ Admin 
 
 ![Image 2](app/assets/images/2.png)
 
-#### Image 2.1 - Admin Login
+#### Image 2.1 - Recipe Menu
 
 ![Image 2.1](app/assets/images/2.1.png)
 
-#### Image 2.2 - Staff Login
+#### Image 2.2 - add recipe
 
 ![Image 2.2](app/assets/images/2.2.png)
 
-#### Image 2.3 - Login Error Handling
+#### Image 2.3 - add image recipe
 
 ![Image 2.3](app/assets/images/2.3.png)
 
-#### Image 2.4 - Authentication Success
+#### Image 2.4 - Edit recipe
 
 ![Image 2.4](app/assets/images/2.4.png)
 
-#### Image 2.5 - User Session
+#### Image 2.5 - Add new ingredient
 
 ![Image 2.5](app/assets/images/2.5.png)
 
-#### Image 2.6 - Sign Out
+#### Image 2.6 - Ingredient Menu
 
 ![Image 2.6](app/assets/images/2.6.png)
 
-### Image 3 - Image Preview with Stimulus
+### Image 3 - หน้า login สำหรับ Staff
 
-การ Preview รูปภาพแบบ Real-time ในหน้า Create/Update โดยใช้ Stimulus Controller
+หน้า Login สำหรับ Staff
 
 ![Image 3](app/assets/images/3.png)
 
-#### Image 3.1 - Image Upload & Preview
+#### Image 3.1 - หน้า Recipe Menu สำหรับ Staff
 
-แสดงตัวอย่างรูปภาพทันทีเมื่อเลือกไฟล์ พร้อมแสดงชื่อและขนาดไฟล์
+หน้า Recipe Menu สำหรับ Staff
 
 ![Image 3.1](app/assets/images/3.1.png)
 
-#### Image 3.2 - Delete & Re-upload
+#### Image 3.2 - หน้า recipe menu สำหรับ Staff
 
-สามารถกดลบรูปภาพเมื่อ upload ผิดพลาด และเลือกไฟล์ใหม่ได้
+ไม่สามารถ add delete หรือ edit recipe กับ Add new ingredient ได้
 
 ![Image 3.2](app/assets/images/3.2.png)
