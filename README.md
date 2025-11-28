@@ -1,5 +1,9 @@
 # Ruby on Rails - Recipe Management System
 
+<div align="center">
+  <img src="app/assets/images/food.gif" alt="Food Animation" width="600">
+</div>
+
 ## 📋 สรุปโปรเจค
 
 ### 1. ระบบแบ่งส่วนการใช้งาน

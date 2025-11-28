@@ -32,8 +32,13 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category = Category.find(params[:id])
-    @category.destroy
-    redirect_to categories_path, notice: "Category was successfully destroyed."
+    
+    if @category.recipes.any?
+      redirect_to categories_path, alert: "ไม่สามารถลบหมวดหมู่นี้ได้ เพราะยังมีสูตรอาหารที่ใช้อยู่"
+    else
+      @category.destroy
+      redirect_to categories_path, notice: "ลบหมวดหมู่สำเร็จ"
+    end
   end
 
   private
