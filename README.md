@@ -1,8 +1,11 @@
-# Ruby on Rails - Recipe Management System
+# 🍳 Ruby on Rails - Recipe Management System
 
 <div align="center">
-  <img src="app/assets/images/food.gif" alt="Food Animation" width="600">
+  <h3>ระบบจัดการสูตรอาหาร | Recipe Management System</h3>
+  <p><em>Built with Ruby on Rails 8.1 | PostgreSQL | Tailwind CSS</em></p>
 </div>
+
+---
 
 ## 📋 สรุปโปรเจค
 
