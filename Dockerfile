@@ -42,8 +42,9 @@ RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz
 COPY Gemfile Gemfile.lock /rails/
 COPY vendor /rails/vendor/
 
-# Install gems with Gemfile.lock
-RUN bundle install && \
+# Install gems with fresh dependency resolution
+RUN bundle lock --update && \
+    bundle install && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
 
 # Install node modules
