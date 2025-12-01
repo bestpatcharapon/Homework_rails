@@ -6,10 +6,11 @@ databases:
 services:
   - type: web
     name: store
-    env: ruby
-    buildCommand: "./bin/render-build.sh"
-    preDeployCommand: "./bin/rails db:prepare && ./bin/rails db:seed"
-    startCommand: "./bin/rails server"
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -17,3 +18,7 @@ services:
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
+      - key: RAILS_ENV
+        value: production
+      - key: PORT
+        value: "10000"
