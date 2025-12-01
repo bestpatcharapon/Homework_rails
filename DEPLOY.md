@@ -34,38 +34,49 @@ git push origin main
 
 ### 3. ตั้งค่า Environment Variables
 
-Render จะอ่านไฟล์ `render.yaml` และแสดงรายการ services ที่จะสร้าง คุณต้องตั้งค่า `RAILS_MASTER_KEY`:
+> [!IMPORTANT] > **เนื่องจาก Render free tier อนุญาตให้มี PostgreSQL database ได้แค่ 1 ตัว** เราจะไม่สร้าง database ใหม่ แต่จะใช้ database ที่มีอยู่แล้วในบัญชีของคุณ
 
-1. หาค่า RAILS_MASTER_KEY:
+Render จะอ่านไฟล์ `render.yaml` และแสดงรายการ services ที่จะสร้าง คุณต้องตั้งค่า Environment Variables ดังนี้:
 
-   ```bash
-   cat /home/gagabox5678/project_rails/store/config/master.key
-   ```
+#### 3.1 หาค่า RAILS_MASTER_KEY:
 
-2. ใน Render Dashboard:
-   - คลิกที่ service **"store"**
-   - ไปที่ **Environment** tab
-   - หา `RAILS_MASTER_KEY` ในรายการ
-   - ใส่ค่าที่ได้จากขั้นตอนที่ 1
-   - คลิก **"Save Changes"**
+```bash
+cat /home/gagabox5678/project_rails/store/config/master.key
+```
+
+ค่าคือ: `97c5e88078a4a09049ab2df74abbc164`
+
+#### 3.2 หาค่า DATABASE_URL จาก Database เดิม:
+
+1.  ไปที่ [Render Dashboard](https://dashboard.render.com)
+2.  เลือก **PostgreSQL database** ที่มีอยู่แล้ว (ที่เป็น free plan)
+3.  ในหน้า database info ให้ copy **"Internal Database URL"**
+    - จะมีรูปแบบประมาณ: `postgres://username:password@host/database_name`
+
+#### 3.3 ตั้งค่าใน Render Service:
+
+1.  ใน Render Blueprint deployment screen หรือหลัง deploy เสร็จ
+2.  คลิกที่ service **"store"**
+3.  ไปที่ **Environment** tab
+4.  ตั้งค่าดังนี้:
+
+| Environment Variable | ค่าที่ต้องใส่                          |
+| -------------------- | -------------------------------------- |
+| `DATABASE_URL`       | URL จาก database เดิม (ตามขั้นตอน 3.2) |
+| `RAILS_MASTER_KEY`   | `97c5e88078a4a09049ab2df74abbc164`     |
+| `RAILS_ENV`          | `production` (ตั้งอัตโนมัติ)           |
+| `PORT`               | `10000` (ตั้งอัตโนมัติ)                |
+
+5.  คลิก **"Save Changes"**
+6.  Service จะ restart อัตโนมัติ
 
 ### 4. Deploy
 
-1. คลิก **"Apply"** เพื่อสร้าง services และ database
-2. Render จะเริ่ม build Docker image และ deploy
-3. รอให้ build เสร็จ (อาจใช้เวลา 5-10 นาที)
 4. เมื่อเสร็จแล้วจะได้ URL สำหรับเข้าใช้งาน เช่น `https://store-xyz.onrender.com`
 
 ## Services ที่จะถูกสร้าง
 
 ตามที่กำหนดใน `render.yaml`:
-
-### Database
-
-- **Name**: `store_db`
-- **Type**: PostgreSQL
-- **Database Name**: `store_production`
-- **User**: `store`
 
 ### Web Service
 
@@ -75,11 +86,14 @@ Render จะอ่านไฟล์ `render.yaml` และแสดงรา�
 - **Region**: Singapore
 - **Plan**: Free
 
+> [!NOTE]
+> Database จะไม่ถูกสร้างใหม่ เนื่องจากเราจะใช้ database ที่มีอยู่แล้วในบัญชีของคุณ
+
 ## Environment Variables
 
 | Variable           | Description                  | Source                            |
 | ------------------ | ---------------------------- | --------------------------------- |
-| `DATABASE_URL`     | PostgreSQL connection string | Auto from database                |
+| `DATABASE_URL`     | PostgreSQL connection string | Manual (from existing database)   |
 | `RAILS_MASTER_KEY` | Rails credentials key        | Manual (from `config/master.key`) |
 | `RAILS_ENV`        | Rails environment            | Set to `production`               |
 | `PORT`             | Web server port              | Set to `10000`                    |
