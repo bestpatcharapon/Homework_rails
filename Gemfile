@@ -66,9 +66,3 @@ gem "devise", "~> 4.9"
 gem "cancancan"
 
 gem "rolify"
-
-# Fix deployment error: https://github.com/rails/rails/issues/51234
-gem "net-pop"
-gem "net-imap"
-gem "net-smtp"
-gem "net-protocol"
