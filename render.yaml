@@ -2,6 +2,7 @@ databases:
   - name: store_db
     databaseName: store_production
     user: store
+    plan: free
 
 services:
   - type: web
