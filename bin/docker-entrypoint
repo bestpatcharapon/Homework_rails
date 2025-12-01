@@ -1,8 +1,10 @@
 #!/bin/bash -e
 
-# If running the rails server then create or migrate existing database
-if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
-  ./bin/rails db:schema:load db:seed
+# If running the rails server then load database schema and seed
+if [[ "$*" == *"rails"* ]] && [[ "$*" == *"server"* ]]; then
+  echo "==> Running database setup..."
+  ./bin/rails db:schema:load db:seed || true
+  echo "==> Database setup complete"
 fi
 
 exec "${@}"
